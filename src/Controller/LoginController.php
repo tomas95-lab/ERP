@@ -14,7 +14,7 @@ class LoginController extends AbstractController
     public function index(Request $request): Response
     {
         $error = null;
-        
+        $session = $request->getSession();
         // Crear el formulario
         $form = $this->createForm(LoginType::class);
         $form->handleRequest($request);
@@ -26,7 +26,7 @@ class LoginController extends AbstractController
             if ($data['email'] === 'demo@email.com' && $data['password'] === 'demo') {
                 $session = $request->getSession();
                 $session->set('user', $data['email']);
-                return $this->redirectToRoute('dashboard', ['access' => true]);
+                return $this->redirectToRoute('dashboard');
             } else {
                 $error = 'Invalid Credentials. Please Try Again.';
             }

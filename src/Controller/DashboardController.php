@@ -9,12 +9,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractController
 {
-    #[Route('/dashboard/{access}', name: 'dashboard')]
-    public function index(Request $request, $access): Response
+    #[Route('/dashboard', name: 'dashboard')]
+    public function index(Request $request): Response
     {
         // Procesar el argumento 'access'
+        $session = $request->getSession();
+        if ($session === null) {
+            return $this->redirectToRoute('login');
+        }
+        $user = $session->get('user');
+
         return $this->render('dashboard.html.twig', [
-            'access' => $access,
+            'user' => $user,
         ]);
     }
 }

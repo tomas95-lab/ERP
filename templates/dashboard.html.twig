@@ -1,11 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mi ERP Demo{% endblock %}
+    {% block title %}Dashboard{% endblock %}
 
-{% block stylesheets %}{% endblock %}
+    {% block stylesheets %}{% endblock %}
 
-{% block body %}
-    <h1>Welcome!</h1>
-{% endblock %}
+    {% block body %}
+        <div class="row m-0 p-0">
+        {% include 'aside.html.twig' %}
+        <div class="p-8 col-lg-9">
+            <div id="kt_app_toolbar_container" class="app-container  container-fluid d-flex flex-stack ">
+            <!--begin::Page title-->
+                    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
+                        <!--begin::Title-->
+                        <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Welcome, {{user}}!</h1>
+                        <!--end::Title-->
+                    </div>
+            <!--end::Page title-->
+            </div>
+        </div>
+    </div>
+            
+    {% endblock %}
 
-{% block javascripts %}{% endblock %}
+    {% block javascripts %}{% endblock %}

@@ -1,0 +1,117 @@
+<div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
+    <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_sidebar_mobile_toggle">
+        <i class="ki-duotone ki-abstract-14 fs-2 fs-md-1"><span class="path1"></span><span class="path2"></span>
+        </i>
+    </div>
+</div>
+<div class="col-lg-2">
+<div id="kt_app_sidebar" class="app-sidebar flex-column bg-white" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="225px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle" style="">
+    <!--begin::Logo-->
+    <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
+        <!--begin::Logo image-->
+        <a href="{{path('dashboard')}}" class="app-sidebar-logo">
+            <img alt="Logo" src="{{asset('metronic/media/logos/default-dark.svg')}}" class="h-25px app-sidebar-logo-default">
+            <img alt="Logo" src="{{asset('metronic/media/logos/default-small.svg')}}" class="h-20px app-sidebar-logo-minimize">
+        </a>
+        <!--end::Logo image-->
+    </div>
+    <!--end::Logo-->
+    <!--begin::sidebar menu-->
+    <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
+        <!--begin::Menu wrapper-->
+        <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper">
+            <!--begin::Scroll wrapper-->
+            <div id="kt_app_sidebar_menu_scroll" class="scroll-y my-2 mx-3" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer" data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true" style="height: 245px;">
+            
+                <!--begin::Menu-->
+                <div class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
+                    <!--begin:Menu item-->
+                    <a href="{{path('dashboard')}}" class="menu-item text-dark" >
+                        <div class="menu-link">
+                        <!--begin:Menu content-->
+                            <span class="menu-icon">
+                                <i class="fas fa-home"></i>
+                            </span>
+                            <span class="menu-title">Home</span>
+                        <!--end:Menu content-->
+                        </div>        
+                    </a>
+                    <!--end:Menu item-->
+                    <div class="menu-item my-2">
+                        <!--begin:Menu link-->
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </span>
+                        <span class="menu-title">Sales</span>
+                        <!--end:Menu link-->
+                    </div>
+                    <div class="menu-item my-2">
+                        <!--begin:Menu link-->
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="fas fa-shop"></i>
+                            </span>
+                        <span class="menu-title">Purchases</span>
+                        <!--end:Menu link-->
+                    </div>
+
+                    <div class="menu-item my-2">
+                        <!--begin:Menu link-->
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="fas fa-warehouse"></i>
+                            </span>
+                        <span class="menu-title">Inventory</span>
+                        <!--end:Menu link-->
+                    </div>
+
+                    <div class="menu-item my-2">
+                        <!--begin:Menu link-->
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </span>
+                        <span class="menu-title">Accounting</span>
+                        <!--end:Menu link-->
+                    </div>
+
+                    <div class="menu-item my-2">
+                        <!--begin:Menu link-->
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </span>
+                        <span class="menu-title">Reports</span>
+                        <!--end:Menu link-->
+                    </div>
+
+                    <div class="menu-item my-2">
+                        <!--begin:Menu link-->
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        <span class="menu-title">User Profile</span>
+                        <!--end:Menu link-->
+                    </div>
+
+                    <div class="menu-item my-2">
+                        <!--begin:Menu link-->
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="fas fa-gear"></i>
+                            </span>
+                        <span class="menu-title">Settings</span>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end::Scroll wrapper-->
+                </div>
+                <!--end::Menu wrapper-->
+            </div>
+            <!--end::sidebar menu-->
+        </div>
+    </div>
+    <!--end::Sidebar-->
+    </div>     
+</div>
