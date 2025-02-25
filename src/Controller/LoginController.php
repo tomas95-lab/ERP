@@ -10,7 +10,7 @@ use App\Form\LoginType;
 
 class LoginController extends AbstractController
 {
-    #[Route('/login', name: 'login')]
+    #[Route('/', name: 'login')]
     public function index(Request $request): Response
     {
         $error = null;
@@ -23,10 +23,10 @@ class LoginController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             // Validar credenciales fijas para la demo
-            if ($data['email'] === 'demo@mail.com' && $data['password'] === 'demo') {
+            if ($data['email'] === 'demo@email.com' && $data['password'] === 'demo') {
                 $session = $request->getSession();
                 $session->set('user', $data['email']);
-                return $this->redirectToRoute('login');
+                return $this->redirectToRoute('dashboard', ['access' => true]);
             } else {
                 $error = 'Invalid Credentials. Please Try Again.';
             }
