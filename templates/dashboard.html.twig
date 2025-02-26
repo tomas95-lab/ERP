@@ -1,25 +1,369 @@
 {% extends 'base.html.twig' %}
+{% set purchases = [
+    {
+        "id": "#XGY-346",
+        "time": "7 min ago",
+        "buyer": "Albert Flores",
+        "amount": "$630.00",
+        "fee": "$86.70",
+        "status": "Pending",
+        "status_class": "badge-light-warning"
+    },
+    {
+        "id": "#YHD-047",
+        "time": "52 min ago",
+        "buyer": "Jenny Wilson",
+        "amount": "$25.00",
+        "fee": "$4.20",
+        "status": "Confirmed",
+        "status_class": "badge-light-primary"
+    },
+    {
+        "id": "#SRR-678",
+        "time": "1 hour ago",
+        "buyer": "Robert Fox",
+        "amount": "$1,630.00",
+        "fee": "$203.90",
+        "status": "Pending",
+        "status_class": "badge-light-warning"
+    },
+    {
+        "id": "#PXF-534",
+        "time": "3 hour ago",
+        "buyer": "Cody Fisher",
+        "amount": "$119.00",
+        "fee": "$12.00",
+        "status": "Shipped",
+        "status_class": "badge-light-success"
+    },
+    {
+        "id": "#XGD-249",
+        "time": "2 day ago",
+        "buyer": "Arlene McCoy",
+        "amount": "$660.00",
+        "fee": "$52.26",
+        "status": "Shipped",
+        "status_class": "badge-light-success"
+    },
+    {
+        "id": "#SKP-035",
+        "time": "2 day ago",
+        "buyer": "Eleanor Pena",
+        "amount": "$290.00",
+        "fee": "$29.00",
+        "status": "Rejected",
+        "status_class": "badge-light-danger"
+    },
+    {
+        "id": "#SKP-567",
+        "time": "7 min ago",
+        "buyer": "Dan Wilson",
+        "amount": "$590.00",
+        "fee": "$50.00",
+        "status": "Shipped",
+        "status_class": "badge-light-success"
+    }
+] %}
 
-    {% block title %}Dashboard{% endblock %}
+{% block title %}Dashboard{% endblock %}
 
-    {% block stylesheets %}{% endblock %}
+{% block stylesheets %}{% endblock %}
 
-    {% block body %}
-        <div class="row m-0 p-0">
-        {% include 'aside.html.twig' %}
-        <div class="p-8 col-lg-9">
-            <div id="kt_app_toolbar_container" class="app-container  container-fluid d-flex flex-stack ">
-            <!--begin::Page title-->
-                    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
-                        <!--begin::Title-->
-                        <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Welcome, {{user}}!</h1>
-                        <!--end::Title-->
+{% block body %}
+<div class="row m-0 p-0">
+    {% include 'aside.html.twig' %}
+    <div class="p-8 col-lg-10">
+    {% include 'header.html.twig' with {'user': user} %}
+            <div class="row m-0 p-0">
+            <div class="row m-4 p-0">
+                <div class="col-md-6 mb-md-5 mb-xl-10 mb-10">
+                    <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end mb-5 mb-xl-10 h-50" style="background-color: #F1416C;background-image:url('{{asset('metronic/media/patterns/vector-1.png')}}')">
+                        <div class="card-header pt-5">
+                            <div class="card-title d-flex flex-column">
+                                <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">125</span>
+                                <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Purchase Orders</span>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex align-items-end pt-0">
+                            <div class="d-flex align-items-center flex-column mt-3 w-100">
+                                <div class="d-flex justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
+                                    <span>25 Pending</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="h-8px mx-3 w-100 bg-white bg-opacity-50 rounded">
+                                    <div class="bg-white rounded h-8px" role="progressbar" style="width: 80%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-            <!--end::Page title-->
+                    <div class="card card-flush mb-5 mb-xl-10 h-50">
+                        <div class="card-header pt-5">
+                            <div class="card-title d-flex flex-column">
+                                <div class="d-flex align-items-center">
+                                    <span class="fs-4 fw-semibold text-gray-500 me-1 align-self-start">$</span>
+                                    <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">52,330</span>
+                                    <span class="badge badge-light-success fs-base">
+                                        <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1"><span class="path1"></span><span class="path2"></span></i>
+                                        2.2%
+                                    </span>
+                                </div>
+                                <span class="text-gray-500 pt-1 fw-semibold fs-6">Total Sales Revenue In {{"now"|date("F")}}</span>
+                            </div>
+                        </div>
+                        <div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+                            <div class="d-flex flex-center me-5 pt-2">
+                                <div id="kt_card_widget_17_chart" style="min-width: 70px; min-height: 70px" data-kt-size="70" data-kt-line="11">
+                                    <span></span>
+                                    <canvas height="70" width="70"></canvas>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column content-justify-center flex-row-fluid">
+                                <div class="d-flex fw-semibold align-items-center">
+                                    <div class="bullet w-8px h-3px rounded-2 bg-success me-3"></div>
+                                    <div class="text-gray-500 flex-grow-1 me-4">Retail Sales</div>
+                                    <div class="fw-bolder text-gray-700 text-xxl-end">$15,430</div>
+                                </div>
+                                <div class="d-flex fw-semibold align-items-center my-3">
+                                    <div class="bullet w-8px h-3px rounded-2 bg-primary me-3"></div>
+                                    <div class="text-gray-500 flex-grow-1 me-4">Online Orders</div>
+                                    <div class="fw-bolder text-gray-700 text-xxl-end">$9,780</div>
+                                </div>
+                                <div class="d-flex fw-semibold align-items-center">
+                                    <div class="bullet w-8px h-3px rounded-2 me-3" style="background-color: #E4E6EF"></div>
+                                    <div class="text-gray-500 flex-grow-1 me-4">Wholesale</div>
+                                    <div class="fw-bolder text-gray-700 text-xxl-end">$27,120</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-bordered h-100">
+                        <div class="card-header pt-7">
+                            <h3>Stock Levels Over Time</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="kt_apexcharts_3" style="height: 350px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-md-5 mb-xl-10 mt-5">
+                    <div class="card card-flush mb-5 h-100">
+                        <div class="card-header pt-7">
+                            <h3 class="card-title align-items-start flex-column">
+                                <span class="card-label fw-bold text-gray-800">Product Orders</span>
+                                <span class="text-gray-500 mt-1 fw-semibold fs-6">Avg. 57 orders per day</span>
+                            </h3>
+                        </div>
+                        <div class="card-body pt-2">
+                            <div id="kt_table_widget_4_table_wrapper" class="dt-container dt-bootstrap5 dt-empty-footer">
+                                <div id="" class="table-responsive">
+                                    <table class="table align-middle table-row-dashed fs-6 gy-3 dataTable" id="kt_table_widget_4_table" style="width: 100%;">
+                                        <colgroup>
+                                            <col data-dt-column="0" style="width: 114.75px;">
+                                            <col data-dt-column="1" style="width: 114.75px;">
+                                            <col data-dt-column="2" style="width: 143.438px;">
+                                            <col data-dt-column="3" style="width: 114.75px;">
+                                            <col data-dt-column="4" style="width: 114.75px;">
+                                            <col data-dt-column="5" style="width: 125px;">
+                                            <col data-dt-column="6" style="width: 39.8906px;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
+                                                <th class="min-w-100px dt-orderable-none" data-dt-column="0" rowspan="1" colspan="1">
+                                                    <span class="dt-column-title">Order ID</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+                                                <th class="text-end min-w-100px dt-orderable-none" data-dt-column="1" rowspan="1" colspan="1">
+                                                    <span class="dt-column-title">Created</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+                                                <th class="text-end min-w-125px dt-orderable-none" data-dt-column="2" rowspan="1" colspan="1">
+                                                    <span class="dt-column-title">Customer</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+                                                <th class="text-end min-w-100px dt-orderable-none dt-type-numeric" data-dt-column="3" rowspan="1" colspan="1">
+                                                    <span class="dt-column-title">Total</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+                                                <th class="text-end min-w-100px dt-orderable-none dt-type-numeric" data-dt-column="4" rowspan="1" colspan="1">
+                                                    <span class="dt-column-title">Profit</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+                                                <th class="text-end min-w-50px dt-orderable-none" data-dt-column="5" rowspan="1" colspan="1">
+                                                    <span class="dt-column-title">Status</span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+                                                <th class="text-end dt-orderable-none" data-dt-column="6" rowspan="1" colspan="1">
+                                                    <span class="dt-column-title"></span>
+                                                    <span class="dt-column-order"></span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fw-bold text-gray-600">
+                                            {% for purchase in purchases %}
+                                            <tr>
+                                                <td>
+                                                    <a href="{{asset('')}}/metronic8/demo1/apps/ecommerce/catalog/edit-product.html" class="text-gray-800 text-hover-primary">{{purchase.id}}</a>
+                                                </td>
+                                                <td class="text-end">{{purchase.time}}</td>
+                                                <td class="text-end">
+                                                    <a href="#" class="text-gray-600 text-hover-primary">{{purchase.buyer}}</a>
+                                                </td>
+                                                <td class="text-end dt-type-numeric">{{purchase.amount}}</td>
+                                                <td class="text-end dt-type-numeric">
+                                                    <span class="text-gray-800 fw-bolder">{{purchase.fee}}</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <span class="badge py-3 px-4 fs-7 {{ purchase.status_class }}">{{purchase.status}}</span>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="" class="row">
+                                    <div id="" class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start dt-toolbar"></div>
+                                    <div id="" class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-            
-    {% endblock %}
+</div>
+{% endblock %}
 
-    {% block javascripts %}{% endblock %}
+{% block javascripts %}
+<script>
+var element = document.getElementById('kt_apexcharts_3');
+
+var height = parseInt(KTUtil.css(element, 'height'));
+var labelColor = KTUtil.getCssVariableValue('--kt-gray-500');
+var borderColor = KTUtil.getCssVariableValue('--kt-gray-200');
+var baseColor = "#3E97FF";
+var lightColor = "#D8EAFF";
+var options = {
+    series: [{
+        name: 'Net Profit',
+        data: [30, 40, 40, 90, 90, 70, 70]
+    }],
+    chart: {
+        fontFamily: 'inherit',
+        type: 'area',
+        height: height,
+        toolbar: {
+            show: false
+        }
+    },
+    plotOptions: {
+
+    },
+    legend: {
+        show: false
+    },
+    dataLabels: {
+        enabled: false
+    },
+    fill: {
+        type: 'solid',
+        opacity: 1
+    },
+    stroke: {
+        curve: 'smooth',
+        show: true,
+        width: 3,
+        colors: [baseColor]
+    },
+    xaxis: {
+        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+        axisBorder: {
+            show: false,
+        },
+        axisTicks: {
+            show: false
+        },
+        labels: {
+            style: {
+                colors: labelColor,
+                fontSize: '12px'
+            }
+        },
+        crosshairs: {
+            position: 'front',
+            stroke: {
+                color: baseColor,
+                width: 1,
+                dashArray: 3
+            }
+        },
+        tooltip: {
+            enabled: true,
+            formatter: undefined,
+            offsetY: 0,
+            style: {
+                fontSize: '12px'
+            }
+        }
+    },
+    yaxis: {
+        labels: {
+            style: {
+                colors: labelColor,
+                fontSize: '12px'
+            }
+        }
+    },
+    states: {
+        normal: {
+            filter: {
+                type: 'none',
+                value: 0
+            }
+        },
+        hover: {
+            filter: {
+                type: 'none',
+                value: 0
+            }
+        },
+        active: {
+            allowMultipleDataPointsSelection: false,
+            filter: {
+                type: 'none',
+                value: 0
+            }
+        }
+    },
+    tooltip: {
+        style: {
+            fontSize: '12px'
+        },
+        y: {
+            formatter: function (val) {
+                return '$' + val + ' thousands'
+            }
+        }
+    },
+    colors: [lightColor],
+    grid: {
+        borderColor: borderColor,
+        strokeDashArray: 4,
+        yaxis: {
+            lines: {
+                show: true
+            }
+        }
+    },
+    markers: {
+        strokeColor: baseColor,
+        strokeWidth: 3
+    }
+};
+
+var chart = new ApexCharts(element, options);
+chart.render();
+</script
+{% endblock %}

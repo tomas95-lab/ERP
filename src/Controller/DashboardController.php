@@ -18,7 +18,7 @@ class DashboardController extends AbstractController
             return $this->redirectToRoute('login');
         }
         $user = $session->get('user');
-
+        
         return $this->render('dashboard.html.twig', [
             'user' => $user,
         ]);
