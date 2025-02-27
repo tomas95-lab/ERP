@@ -1,6 +1,6 @@
 <div
     id="kt_app_sidebar"
-    class="app-sidebar flex-column"
+    class="app-sidebar flex-column border-end border-2"
     data-kt-drawer="true"
     data-kt-drawer-name="app-sidebar"
     data-kt-drawer-activate="{default: true, lg: false}"
@@ -9,8 +9,7 @@
     data-kt-drawer-direction="start"
     data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle"
 >
-
-    <!--begin::sidebar menu-->
+    <!--begin::Sidebar menu-->
     <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
         <!--begin::Menu wrapper-->
         <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper">
@@ -29,85 +28,77 @@
             >
                 <!--begin::Menu-->
                 <div class="menu menu-column menu-rounded menu-sub-indention pt-6 fw-semibold fs-6" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
-                    <!--begin:Menu item-->
-                    <a href="{{path('dashboard')}}" class="menu-item text-dark" >
-                        <div class="menu-link text-hover-primary">
-                        <!--begin:Menu content-->
+                    <!-- Home -->
+                    <a href="{{ path('dashboard') }}" class="menu-item text-dark">
+                        <div class="menu-link text-dark text-hover-primary">
                             <span class="menu-icon">
                                 <i class="fas fa-home"></i>
                             </span>
                             <span class="menu-title">Home</span>
-                        <!--end:Menu content-->
-                        </div>        
+                        </div>
                     </a>
-                    <!--end:Menu item-->
+                    <!-- Production -->
                     <div class="menu-item my-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link text-hover-primary">
+                        <a href="#" class="menu-link text-dark text-hover-primary">
                             <span class="menu-icon">
-                                <i class="fas fa-dollar-sign"></i>
+                                <i class="fas fa-industry"></i>
                             </span>
-                        <span class="menu-title">Sales</span>
-                        <!--end:Menu link-->
+                            <span class="menu-title">Production Overview</span>
+                        </a>
                     </div>
+                    <!-- Field Operations -->
                     <div class="menu-item my-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link text-hover-primary">
+                        <a href="#" class="menu-link text-dark text-hover-primary">
                             <span class="menu-icon">
-                                <i class="fas fa-shop"></i>
+                                <i class="fas fa-oil-can"></i>
                             </span>
-                        <span class="menu-title">Purchases</span>
-                        <!--end:Menu link-->
+                            <span class="menu-title">Field Ops</span>
+                        </a>
                     </div>
-
+                    <!-- Inventory -->
                     <div class="menu-item my-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link text-hover-primary">
+                        <a href="#" class="menu-link text-dark text-hover-primary">
                             <span class="menu-icon">
                                 <i class="fas fa-warehouse"></i>
                             </span>
-                        <span class="menu-title">Inventory</span>
-                        <!--end:Menu link-->
+                            <span class="menu-title">Inventory</span>
+                        </a>
                     </div>
-
+                    <!-- Financials -->
                     <div class="menu-item my-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link text-hover-primary">
+                        <a href="#" class="menu-link text-dark text-hover-primary">
                             <span class="menu-icon">
                                 <i class="fas fa-chart-line"></i>
                             </span>
-                        <span class="menu-title">Accounting</span>
-                        <!--end:Menu link-->
+                            <span class="menu-title">Financials</span>
+                        </a>
                     </div>
-
+                    <!-- Reports -->
                     <div class="menu-item my-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link text-hover-primary">
+                        <a href="#" class="menu-link text-dark text-hover-primary">
                             <span class="menu-icon">
                                 <i class="fas fa-file-alt"></i>
                             </span>
-                        <span class="menu-title">Reports</span>
-                        <!--end:Menu link-->
+                            <span class="menu-title">Reports</span>
+                        </a>
                     </div>
-
+                    <!-- Team -->
                     <div class="menu-item my-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link text-hover-primary">
+                        <a href="#" class="menu-link text-dark text-hover-primary">
                             <span class="menu-icon">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-users"></i>
                             </span>
-                        <span class="menu-title">User Profile</span>
-                        <!--end:Menu link-->
+                            <span class="menu-title">Team</span>
+                        </a>
                     </div>
-
+                    <!-- Account Settings -->
                     <div class="menu-item my-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link text-hover-primary">
+                        <a href="{{ path('app_account_setting') }}" class="menu-link text-hover-primary text-dark">
                             <span class="menu-icon">
                                 <i class="fas fa-gear"></i>
                             </span>
-                        <span class="menu-title">Settings</span>
-                        <!--end:Menu link-->
+                            <span class="menu-title">Account Settings</span>
+                        </a>
                     </div>
                 </div>
                 <!--end::Menu-->
@@ -116,5 +107,5 @@
         </div>
         <!--end::Menu wrapper-->
     </div>
-    <!--end::sidebar menu-->
+    <!--end::Sidebar menu-->
 </div>

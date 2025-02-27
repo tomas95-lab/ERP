@@ -1,4 +1,4 @@
-<div id="kt_docs_header" class="docs-header align-items-stretch mb-2 mb-lg-10">
+<div id="kt_docs_header" class="docs-header align-items-stretch mb-2 mb-lg-10 border-bottom ">
    <!--begin::Container-->
    <div class="container">
       <div class="d-flex align-items-stretch justify-content-between py-3 h-75px">
@@ -20,8 +20,9 @@
                   <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-6 my-1">
                      <!--begin::Item-->
                      <li class="breadcrumb-item text-gray-600">
-                        <a href="/html/metronic/docs/index" class="text-gray-600 text-hover-primary">
-                        Home                            </a>
+                        <span href="" class="text-gray-600">
+                        {{actual_page}}
+                        </span>
                      </li>
                      <!--end::Item-->
                   </ul>
@@ -102,10 +103,10 @@
                         <!--begin::Username-->
                         <div class="d-flex flex-column">
                            <div class="fw-bold d-flex align-items-center fs-5">
-                              Robert Fox                    <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Admin</span>
+                              {{user}}                    <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">{{role}}</span>
                            </div>
                            <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">
-                           robert@kt.com                </a>
+                           {{email}}                </a>
                         </div>
                         <!--end::Username-->
                      </div>
@@ -116,14 +117,14 @@
                   <!--end::Menu separator-->
                   <!--begin::Menu item-->
                   <div class="menu-item px-5">
-                     <a href="/metronic8/demo1/account/overview.html" class="menu-link px-5">
+                     <a href="#" class="menu-link px-5">
                      My Profile
                      </a>
                   </div>
                   <!--end::Menu item-->
                   <!--begin::Menu item-->
                   <div class="menu-item px-5">
-                     <a href="/metronic8/demo1/apps/projects/list.html" class="menu-link px-5">
+                     <a href="#" class="menu-link px-5">
                      <span class="menu-text">My Projects</span>
                      <span class="menu-badge">
                      <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
@@ -200,7 +201,7 @@
                   <!--end::Menu separator-->
                   <!--begin::Menu item-->
                   <div class="menu-item px-5 my-1">
-                     <a href="/metronic8/demo1/account/settings.html" class="menu-link px-5">
+                     <a href="{{path('app_account_setting')}}" class="menu-link px-5">
                      Account Settings
                      </a>
                   </div>
@@ -217,13 +218,6 @@
                <!--end::Menu wrapper-->
             </div>
             <!--end::User menu-->
-            <!--begin::Header menu toggle-->
-            <div class="app-navbar-item d-lg-none ms-2 me-n2" title="Show header menu">
-               <div class="btn btn-flex btn-icon btn-active-color-primary w-30px h-30px" id="kt_app_header_menu_toggle">
-                  <i class="ki-duotone ki-element-4 fs-1"><span class="path1"></span><span class="path2"></span></i>            
-               </div>
-            </div>
-            <!--end::Header menu toggle-->
             <!--begin::Aside toggle-->
             <!--end::Header menu toggle-->
          </div>

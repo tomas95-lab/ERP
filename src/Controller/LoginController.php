@@ -13,19 +13,29 @@ class LoginController extends AbstractController
     #[Route('/', name: 'login')]
     public function index(Request $request): Response
     {
+        $user_data = [
+            'name' => 'John Doe',
+            'Phone' => '123-456-7890',
+            'email' => 'demo@email.com',
+            'password' => 'demo',
+            'role' => 'Admin',
+            'status' => 'Active',
+            'location' => 'New York, NY',
+        ];
         $error = null;
         $session = $request->getSession();
         // Crear el formulario
         $form = $this->createForm(LoginType::class);
         $form->handleRequest($request);
-
+        
         // Procesar el envío del formulario
         if ($form->isSubmitted() && $form->isValid()) {
+            foreach ($user_data as $key => $value) {
+                $session->set($key, $value);
+            }
             $data = $form->getData();
             // Validar credenciales fijas para la demo
-            if ($data['email'] === 'demo@email.com' && $data['password'] === 'demo') {
-                $session = $request->getSession();
-                $session->set('user', $data['email']);
+            if ($data['email'] === $session->get('email') && $data['password'] === $session->get('password')) {
                 return $this->redirectToRoute('dashboard');
             } else {
                 $error = 'Invalid Credentials. Please Try Again.';

@@ -17,10 +17,16 @@ class DashboardController extends AbstractController
         if ($session === null) {
             return $this->redirectToRoute('login');
         }
-        $user = $session->get('user');
-        
+        $user = $session->get('name');
+        $session->set('actual_page', 'Home');
+
+        $actual_page = $session->get('actual_page');
         return $this->render('dashboard.html.twig', [
+            'actual_page' => $actual_page,
             'user' => $user,
+            'role'      => $session->get('role'),
+            'status'    => $session->get('status'),
+            'email'     => $session->get('email'),
         ]);
     }
 }
